@@ -1,0 +1,7 @@
+global array of bone transform matrices in vertex buffer
+
+extra vertex attributes - 4 bone indices, 4 bone weights
+
+cpu side - per animated object - compute bone transforms by interpolating over key frames, send to GPU during rendering
+
+gpu side - per vertex - compute weighted sum of bone matrices and apply to the model matrix? or apply to vertex before model
