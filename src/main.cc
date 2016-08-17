@@ -27,9 +27,9 @@ using namespace std;
 
 LightSource *lightSource;
 Object *objectContainer;
-DrawableObject *cube;
-DrawableObject *rect;
-DrawableObject *wall;
+//DrawableObject *cube;
+//DrawableObject *rect;
+//DrawableObject *wall;
 
 void reset();
 
@@ -160,12 +160,13 @@ void init(void)
     //rect->SetTexture(texture);
     //rect->RotateX(M_PI / 2.0f);
 
-    // MIDDLE CUBE
-//    cube = new DrawableObject(objectContainer, Schematic::GetSchematicByName("cube"));
-//    //cube->SetTexture(texture);
-//    //cube->SetScale(100);
-//    cube->Translate(vec4(-50.0f, 0.0f, 0.0f, 0.0f));
-//    cube->Scale(0.01f);
+    // R2D2
+    auto r2d2 = new DrawableObject(engine::GetRootObject(), Schematic::GetSchematicByName("r2d2"));
+    //cube->SetTexture(texture);
+    //cube->SetScale(100);
+    //r2d2->Translate(vec4(-50.0f, 0.0f, 0.0f, 0.0f));
+    r2d2->RotateX(-M_PI / 2.0f);
+    r2d2->Scale(10.0f);
 
     //DrawableObject *object = new DrawableObject(objectContainer, VertexMesh::GetVertexMeshPrototypeByName("a"));
     ////DrawableObject *object = new Rectangle(objectContainer);

@@ -146,6 +146,7 @@
 		<Unit filename="puddi/src/Schematic.cc" />
 		<Unit filename="puddi/src/Shader.cc" />
 		<Unit filename="puddi/src/Shadow.cc" />
+		<Unit filename="puddi/src/Skeleton.cc" />
 		<Unit filename="puddi/src/Skybox.cc" />
 		<Unit filename="puddi/src/Sphere.cc" />
 		<Unit filename="puddi/src/TerrainVertexMesh.cc" />
