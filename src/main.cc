@@ -52,10 +52,11 @@ void init(void)
     //GLuint texture = Texture::LoadTexture("shrek", "textures/Shrek-and-Yoda (copy).jpg");
     //GLuint texture = Texture::CreateTextureFromString("bakow", "bakow_string", "fonts/Bitstream/VeraMono-Bold.ttf", 24, vec3(1.0f, 0.0f, 0.0f));
 
-    Schematic::LoadSchematic("models/rounded.obj", "pill");
-    Schematic::LoadSchematic("models/cube rounded - 554 faces.obj", "rounded_cube");
-    Schematic::LoadSchematic("models/grumpycat.obj", "grumpycat");
-    Schematic::LoadSchematic("models/R2-D2.obj", "r2d2");
+//    Schematic::LoadSchematic("models/rounded.obj", "pill");
+//    Schematic::LoadSchematic("models/cube rounded - 554 faces.obj", "rounded_cube");
+//    Schematic::LoadSchematic("models/grumpycat.obj", "grumpycat");
+//    Schematic::LoadSchematic("models/R2-D2.obj", "r2d2");
+    Schematic::LoadSchematic("models/ninja.b3d", "ninja");
 
     engine::MainCamera->SetPosition(vec4(0.0f, -5.0f, 0.0f, 1.0f));
     engine::MainCamera->LookAt(vec4(0.0f, 0.0f, 0.0f, 1.0f));
@@ -161,12 +162,12 @@ void init(void)
     //rect->RotateX(M_PI / 2.0f);
 
     // R2D2
-    auto r2d2 = new DrawableObject(engine::GetRootObject(), Schematic::GetSchematicByName("r2d2"));
+    auto r2d2 = new DrawableObject(engine::GetRootObject(), Schematic::GetSchematicByName("ninja"));
     //cube->SetTexture(texture);
     //cube->SetScale(100);
     //r2d2->Translate(vec4(-50.0f, 0.0f, 0.0f, 0.0f));
-    r2d2->RotateX(-M_PI / 2.0f);
-    r2d2->Scale(10.0f);
+    r2d2->RotateY(M_PI);
+    r2d2->Scale(1.0f);
 
     //DrawableObject *object = new DrawableObject(objectContainer, VertexMesh::GetVertexMeshPrototypeByName("a"));
     ////DrawableObject *object = new Rectangle(objectContainer);
