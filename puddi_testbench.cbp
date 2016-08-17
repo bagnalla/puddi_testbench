@@ -88,6 +88,7 @@
 		<Unit filename="puddi/include/Schematic.h" />
 		<Unit filename="puddi/include/Shader.h" />
 		<Unit filename="puddi/include/Shadow.h" />
+		<Unit filename="puddi/include/Skeleton.h" />
 		<Unit filename="puddi/include/Skybox.h" />
 		<Unit filename="puddi/include/Sphere.h" />
 		<Unit filename="puddi/include/TerrainVertexMesh.h" />
