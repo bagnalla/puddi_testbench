@@ -1,7 +1,7 @@
 #include "Puddi.h"
 #include "FpsTracker.h"
 #include "LightSource.h"
-#include "DrawableObject.h"
+#include "AnimatedObject.h"
 #include "Texture.h"
 #include "Cube.h"
 #include "GlmHeaders.h"
@@ -56,6 +56,9 @@ void init(void)
 //    Schematic::LoadSchematic("models/cube rounded - 554 faces.obj", "rounded_cube");
 //    Schematic::LoadSchematic("models/grumpycat.obj", "grumpycat");
 //    Schematic::LoadSchematic("models/R2-D2.obj", "r2d2");
+	Skeleton::LoadSkeleton("models/ninja.b3d", "ninja");
+	auto sdf = Skeleton::GetSkeletonByName("ninja");
+	Skeleton::PrintSkeleton(sdf);
     Schematic::LoadSchematic("models/ninja.b3d", "ninja");
 
     engine::MainCamera->SetPosition(vec4(0.0f, -5.0f, 0.0f, 1.0f));
@@ -162,12 +165,12 @@ void init(void)
     //rect->RotateX(M_PI / 2.0f);
 
     // R2D2
-    auto r2d2 = new DrawableObject(engine::GetRootObject(), Schematic::GetSchematicByName("ninja"));
+    auto ninja = new DrawableObject(engine::GetRootObject(), Schematic::GetSchematicByName("ninja"));
     //cube->SetTexture(texture);
     //cube->SetScale(100);
     //r2d2->Translate(vec4(-50.0f, 0.0f, 0.0f, 0.0f));
-    r2d2->RotateY(M_PI);
-    r2d2->Scale(1.0f);
+	ninja->RotateY(M_PI);
+	ninja->Scale(1.0f);
 
     //DrawableObject *object = new DrawableObject(objectContainer, VertexMesh::GetVertexMeshPrototypeByName("a"));
     ////DrawableObject *object = new Rectangle(objectContainer);
