@@ -169,6 +169,7 @@ void init(void)
     //r2d2->Translate(vec4(-50.0f, 0.0f, 0.0f, 0.0f));
 	ninja->RotateY(M_PI);
 	ninja->Scale(1.0f);
+	ninja->EnableAnimation();
 
     //DrawableObject *object = new DrawableObject(objectContainer, VertexMesh::GetVertexMeshPrototypeByName("a"));
     ////DrawableObject *object = new Rectangle(objectContainer);
