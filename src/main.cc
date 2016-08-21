@@ -167,9 +167,12 @@ void init(void)
     //cube->SetTexture(texture);
     //cube->SetScale(100);
     //r2d2->Translate(vec4(-50.0f, 0.0f, 0.0f, 0.0f));
-	ninja->RotateY(M_PI);
+	ninja->RotateX(-M_PI / 2.0f);
+	ninja->RotateZ(M_PI);
 	ninja->Scale(1.0f);
 	ninja->EnableAnimation();
+	ninja->SetActiveAnimation("");
+	ninja->SetAnimationTicksPerSecond("", 10.0f);
 
     //DrawableObject *object = new DrawableObject(objectContainer, VertexMesh::GetVertexMeshPrototypeByName("a"));
     ////DrawableObject *object = new Rectangle(objectContainer);
