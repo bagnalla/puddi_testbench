@@ -65,6 +65,7 @@
 		<Unit filename="bumpmaps/stone1_NRM.jpg" />
 		<Unit filename="bumpmaps/stone_wall_NRM.jpg" />
 		<Unit filename="puddi/Makefile" />
+		<Unit filename="puddi/include/AnimatedObject.h" />
 		<Unit filename="puddi/include/CRSpline.h" />
 		<Unit filename="puddi/include/Camera.h" />
 		<Unit filename="puddi/include/Cube.h" />
@@ -124,6 +125,7 @@
 		<Unit filename="puddi/shaders/vertex/vshader_terrain_texture_bump.glsl" />
 		<Unit filename="puddi/shaders/vertex/vshader_texture.glsl" />
 		<Unit filename="puddi/shaders/vertex/vshader_texture_bump.glsl" />
+		<Unit filename="puddi/src/AnimatedObject.cc" />
 		<Unit filename="puddi/src/CRSpline.cc" />
 		<Unit filename="puddi/src/Camera.cc" />
 		<Unit filename="puddi/src/Cube.cc" />
