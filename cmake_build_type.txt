@@ -1,3 +1,4 @@
-cmake -D CMAKE_BUILD_TYPE=Debug ..
-cmake -D CMAKE_BUILD_TYPE=Release ..
+rm -rf CMakeCache.txt CMakeFiles/ cmake_install.cmake; cmake -D CMAKE_BUILD_TYPE=Debug ..
+
+rm -rf CMakeCache.txt CMakeFiles/ cmake_install.cmake; cmake -D CMAKE_BUILD_TYPE=Release ..
 

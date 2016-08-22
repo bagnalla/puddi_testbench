@@ -1,25 +1,16 @@
+#define GLM_FORCE_RADIANS
 #include "Puddi.h"
-#include "FpsTracker.h"
 #include "LightSource.h"
 #include "AnimatedObject.h"
 #include "Texture.h"
-#include "Cube.h"
-#include "GlmHeaders.h"
-#include "Rectangle.h"
 #include "Skybox.h"
 #include "Font.h"
-#include "Util.h"
-#include "TerrainVertexMesh.h"
-#include "HeightMapTerrain.h"
 #include "Shadow.h"
-#include "RenderGraph.h"
 #include "Schematic.h"
-#include "Skeleton.h"
 #include "Camera.h"
 #include <vector>
 #include <iostream>
 #include <string>
-#include <fstream>
 #include <queue>
 
 using namespace puddi;
