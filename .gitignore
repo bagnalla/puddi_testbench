@@ -49,4 +49,4 @@ install_manifest.txt
 CTestTestfile.cmake
 
 #CLion
-.idea/workspace.xml
+.idea/
