@@ -56,8 +56,11 @@ void init(void)
 //    Schematic::LoadSchematic("models/cube rounded - 554 faces.obj", "rounded_cube");
 //    Schematic::LoadSchematic("models/grumpycat.obj", "grumpycat");
 //    Schematic::LoadSchematic("models/R2-D2.obj", "r2d2");
-	Skeleton::LoadSkeleton("models/ninja.b3d", "ninja");
-    Schematic::LoadSchematic("models/ninja.b3d", "ninja");
+	Skeleton::LoadSkeleton("models/ninja.ms3d", "ninja");
+	Schematic::LoadSchematic("models/ninja.ms3d", "ninja");
+
+	//Skeleton::LoadSkeleton("models/game muscle guy.blend", "big_guy");
+	//Schematic::LoadSchematic("models/game muscle guy.blend", "big_guy");
 
     engine::MainCamera->SetPosition(vec4(0.0f, -5.0f, 0.0f, 1.0f));
     engine::MainCamera->LookAt(vec4(0.0f, 0.0f, 0.0f, 1.0f));
@@ -162,7 +165,7 @@ void init(void)
     //rect->SetTexture(texture);
     //rect->RotateX(M_PI / 2.0f);
 
-    // R2D2
+    // ninja
     auto ninja = new AnimatedObject(engine::GetRootObject(), Schematic::GetSchematicByName("ninja"), Skeleton::GetSkeletonByName("ninja"), Skeleton::GetAnimationsBySkeletonName("ninja"));
     //cube->SetTexture(texture);
     //cube->SetScale(100);
@@ -171,8 +174,13 @@ void init(void)
 	ninja->RotateZ(M_PI);
 	ninja->Scale(1.0f);
 	ninja->EnableAnimation();
-	ninja->SetActiveAnimation("");
-	ninja->SetAnimationTicksPerSecond("", 10.0f);
+	//ninja->SetActiveAnimation("");
+	//ninja->SetAnimationTicksPerSecond("", 10.0f);
+	ninja->SetActiveAnimation("<MS3DMasterAnim>");
+	ninja->SetAnimationTicksPerSecond("<MS3DMasterAnim>", 10.0f);
+
+	//auto big_guy = new DrawableObject(engine::GetRootObject(), Schematic::GetSchematicByName("big_guy"));
+
 
     //DrawableObject *object = new DrawableObject(objectContainer, VertexMesh::GetVertexMeshPrototypeByName("a"));
     ////DrawableObject *object = new Rectangle(objectContainer);
