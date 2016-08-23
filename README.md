@@ -1,11 +1,11 @@
 # puddi testbench
 A project for developing and testing the puddi 3D graphics engine.
 
-CMake is required in addition to puddi's dependencies.
+CMake is required as well as puddi's dependencies.
 
 To set up the puddi submodule:
   git submodule init
-  git submodule update
+  git submodule update --remote --merge
 
 To build Debug:
   mkdir Debug
