@@ -164,11 +164,28 @@ void init(void)
 	ninja->RotateX(-M_PI / 2.0f);
 	ninja->RotateZ(M_PI);
 	ninja->Scale(1.0f);
+    ninja->SetPosition(vec4(-2.0f, -2.0f, 0.0f, 1.0f));
 	ninja->EnableAnimation();
 	//ninja->SetActiveAnimation("");
 	//ninja->SetAnimationTicksPerSecond("", 10.0f);
 	ninja->SetActiveAnimation("<MS3DMasterAnim>");
 	ninja->SetAnimationTicksPerSecond("<MS3DMasterAnim>", 10.0f);
+
+    for (size_t i = 0; i < 50; ++i) {
+        for (size_t j = 0; j < 25; ++j) {
+            auto n = new AnimatedObject(engine::GetRootObject(), Schematic::GetSchematicByName("ninja"),
+                                        Skeleton::GetSkeletonByName("ninja"),
+                                        Skeleton::GetAnimationsBySkeletonName("ninja"));
+            n->RotateX(-M_PI / 2.0f);
+            n->RotateZ(M_PI);
+            n->Scale(0.5f);
+            n->SetPosition(vec4(i * 2.0f, j * 2.0f, 0.0f, 1.0f));
+            n->EnableAnimation();
+            n->SetActiveAnimation("<MS3DMasterAnim>");
+            n->SetAnimationTicksPerSecond("<MS3DMasterAnim>", 10.0f);
+            n->SetAnimationProgress(fmodf(i * j / 100.0f, 100.0f));
+        }
+    }
 
 	//auto big_guy = new DrawableObject(engine::GetRootObject(), Schematic::GetSchematicByName("big_guy"));
 
