@@ -11,6 +11,7 @@
 #include "Sphere.h"
 #include "Line.h"
 #include "Cube.h"
+#include "RenderGraph.h"
 
 #include <vector>
 #include <iostream>
@@ -22,6 +23,8 @@ using namespace std;
 
 LightSource *lightSource;
 Object *objectContainer;
+Scene *world_scene;
+Camera *world_camera;
 
 void reset();
 
@@ -39,12 +42,11 @@ struct Vec3Cmp {
 
 void init(void)
 {
-  engine::AddRenderGraph();
-  engine::AddRenderGraph();
-  engine::AddRenderGraph();
+  world_scene = engine::GetWorldScene();
+  world_camera = engine::GetWorldCamera();
 
-  engine::MainCamera->SetPosition(vec4(0.0f, -5.0f, 0.0f, 1.0f));
-  engine::MainCamera->LookAt(vec4(0.0f, 0.0f, 0.0f, 1.0f));
+  world_camera->SetPosition(vec4(0.0f, -5.0f, 0.0f, 1.0f));
+  world_camera->LookAt(vec4(0.0f, 0.0f, 0.0f, 1.0f));
   //engine::MainCamera->SetZoomOut(10.0f);
 
   lightSource = LightSource::ObtainLightSource();
@@ -64,9 +66,15 @@ void init(void)
   // skybox->SetScale(engine::ViewDistance);
   // skybox->DisableShadowCasting();
 
-  // auto sphere = new Sphere(engine::GetRootObject());
-  // auto sphere = new Cube(engine::GetRootObject());
+  // cout << "making sphere" << endl;
+  // auto sphere = new Sphere(world_scene->GetRootObject());
+  // cout << "adding sphere to world scene" << endl;
+  // // auto sphere = new Cube(world_scene->GetRootObject());
+  // world_scene->AddObject(sphere);
+  // cout << "setting emissive" << endl;
   // sphere->SetEmissive(true);
+  // sphere->SetEmissive(true);
+  // cout << "setting emission color" << endl;
   // sphere->SetEmissionColor(vec4(0.0f, 0.5f, 1.0f, 1.0f));
 
   // auto sphere_vertices = Sphere::GetSphereVertices();
@@ -100,24 +108,30 @@ void init(void)
   engine::SetLineWidth(5);
   // engine::SetLineWidth(10);
 
-  // Line *l = new Line(engine::GetRootObject());
-  // l->SetEmissive(true);
-  // l->SetEmissionColor(vec4(0.0f, 0.0f, 0.0f, 1.0f));
-  // l->SetWorldPoints(vec4(-10, 0, 0, 1), vec4(10, 0, 0, 1));
+  Line *l = new Line(world_scene->GetRootObject());
+  l->SetEmissive(true);
+  l->SetEmissionColor(vec4(0.0f, 0.0f, 0.0f, 1.0f));
+  l->SetWorldPoints(vec4(-10, 0, 0, 1), vec4(10, 0, 0, 1));
+  // world_scene->AddObject(l);
+  l->AddMeshesToScene(world_scene);
   
   // sphere->DisableRender();
 
   auto square_verts = Geometry::CreateRectangleTriangles();
 
-  auto linesContainer = new Object(engine::GetRootObject());
+  auto linesContainer = new Object(world_scene->GetRootObject());
+  // world_scene->AddObject(linesContainer);
 
-  // for (size_t i = 0; i < sphere_vertices.size(); i += 2) {
-  for (size_t i = 0; i < square_verts.size(); ++i) {
-    if (i == square_verts.size() -1) break;
-    auto l = new Line(linesContainer);
-    // l->SetWorldPoints(sphere_vertices[i], sphere_vertices[i+1]);
-    l->SetWorldPoints(square_verts[i], square_verts[i+1]);
-  }
+  // // for (size_t i = 0; i < sphere_vertices.size(); i += 2) {
+  // for (size_t i = 0; i < square_verts.size(); ++i) {
+  //   if (i == square_verts.size() - 1) break;
+  //   auto l = new Line(linesContainer);
+  //   l->AddMeshesToScene(world_scene);
+  //   // l->SetWorldPoints(sphere_vertices[i], sphere_vertices[i+1]);
+  //   l->SetWorldPoints(square_verts[i], square_verts[i+1]);
+  //   l->AddMeshesToScene(world_scene);
+  //   // cout << world_scene->GetRenderGraph()->Size() << endl;
+  // }
 
   // drawableobject *cat =
   //   new DrawableObject(engine::GetRootObject(),
@@ -139,7 +153,7 @@ int update()
   while (SDL_PollEvent(&ev))
   {
     // send event to camera
-    engine::MainCamera->InputEvent(ev);
+    world_camera->InputEvent(ev);
 
     // quit
     if (ev.type == SDL_QUIT)
@@ -193,7 +207,7 @@ int update()
     // window event
     else if (ev.type == SDL_WINDOWEVENT)
     {
-      engine::UpdateProjectionMatrixAndViewport();
+      engine::ViewportChange();
     }
   }
   //    if (cube != nullptr)
